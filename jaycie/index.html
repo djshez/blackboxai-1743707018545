@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaycie AI - Autonomic Self-Learning Bot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+        }
+        .chat-bubble {
+            max-width: 80%;
+            animation: fadeIn 0.3s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .typing-indicator span {
+            animation: blink 1.4s infinite both;
+        }
+        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes blink {
+            0% { opacity: 0.1; }
+            20% { opacity: 1; }
+            100% { opacity: 0.1; }
+        }
+    </style>
+</head>
+<body class="text-gray-100">
+    <div class="container mx-auto px-4 py-8 flex flex-col h-screen max-w-6xl">
+        <!-- Header -->
+        <header class="glass-effect rounded-lg p-6 mb-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 rounded-full bg-indigo-600 flex items-center justify-center">
+                        <i class="fas fa-robot text-2xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-semibold text-white">Jaycie AI</h1>
+                        <p class="text-gray-400 text-sm">Autonomic Self-Learning Bot</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="glass-effect px-4 py-2 rounded-lg hover:bg-opacity-20 transition-all">
+                        <i class="fas fa-history mr-2"></i>History
+                    </button>
+                    <button class="glass-effect px-4 py-2 rounded-lg hover:bg-opacity-20 transition-all">
+                        <i class="fas fa-cog mr-2"></i>Settings
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Chat Area -->
+        <div class="flex-1 glass-effect rounded-lg p-6 mb-6 overflow-hidden flex flex-col">
+            <div class="flex-1 overflow-y-auto mb-4 space-y-4" id="chat-messages">
+                <!-- Welcome Message -->
+                <div class="chat-bubble ml-4 p-4 rounded-lg glass-effect">
+                    <div class="flex items-start">
+                        <div class="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center mr-4">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div>
+                            <p class="text-white">Hello! I'm Jaycie, your AI assistant. I'm here to help and learn from our interactions. How can I assist you today?</p>
+                            <span class="text-xs text-gray-400 mt-2 block">Just now</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Typing Indicator -->
+            <div class="typing-indicator hidden ml-4 p-4 rounded-lg glass-effect inline-block">
+                <div class="flex items-center space-x-2">
+                    <div class="w-6 h-6 rounded-full bg-indigo-600 flex items-center justify-center">
+                        <i class="fas fa-robot text-sm"></i>
+                    </div>
+                    <div class="flex space-x-1">
+                        <span class="w-2 h-2 bg-gray-400 rounded-full"></span>
+                        <span class="w-2 h-2 bg-gray-400 rounded-full"></span>
+                        <span class="w-2 h-2 bg-gray-400 rounded-full"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="glass-effect rounded-lg p-4">
+            <form id="chat-form" class="flex space-x-4">
+                <input type="text" 
+                       id="user-input" 
+                       class="flex-1 bg-transparent border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:border-indigo-500 text-white placeholder-gray-400"
+                       placeholder="Type your message here..."
+                       autocomplete="off">
+                <button type="submit" 
+                        class="bg-indigo-600 hover:bg-indigo-700 rounded-lg px-6 py-2 text-white font-medium transition-colors duration-200 flex items-center">
+                    <span>Send</span>
+                    <i class="fas fa-paper-plane ml-2"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
