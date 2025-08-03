@@ -1,2 +1,1 @@
-# blackboxai-1743707018545
-Built by https://www.blackbox.ai
+Jaycie is an advanced AI chatbot that integrates with Google's mainframe server for autonomous learning and natural language processing capabilities. The system features both a modern web interface and a robust backend server that handles AI processing and learning capabilities
